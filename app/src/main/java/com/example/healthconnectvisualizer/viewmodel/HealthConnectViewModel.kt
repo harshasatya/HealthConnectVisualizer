@@ -78,9 +78,9 @@ class HealthConnectViewModel(private val context: Context) : ViewModel() {
         }
     }
 
-    fun requestPermissions(launcher: ActivityResultLauncher<Set<String>>) {
+    fun requestPermissions(launcher: ActivityResultLauncher<Array<String>>) {
         viewModelScope.launch {
-            launcher.launch(permissions.map { it.toString() }.toSet())
+            launcher.launch(permissions.map { it.toString() }.toTypedArray())
         }
     }
 
@@ -94,7 +94,8 @@ class HealthConnectViewModel(private val context: Context) : ViewModel() {
     }
 
     private suspend fun hasAllPermissions(): Boolean {
-        return healthConnectClient.permissionController.getGrantedPermissions(permissions).containsAll(permissions)
+        val granted = healthConnectClient.permissionController.getGrantedPermissions()
+        return granted.containsAll(permissions.map { it.toString() })
     }
 
     private fun startDataSync() {

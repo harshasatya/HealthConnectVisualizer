@@ -12,7 +12,7 @@ import com.example.healthconnectvisualizer.viewmodel.HealthConnectViewModel
 class MainActivity : ComponentActivity() {
 
     private lateinit var healthConnectViewModel: HealthConnectViewModel
-    private lateinit var requestPermissions: ActivityResultLauncher<Set<String>>
+    private lateinit var requestPermissions: ActivityResultLauncher<Array<String>>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
