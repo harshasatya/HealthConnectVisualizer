@@ -1,0 +1,3 @@
+[submodule "buildAPKs"]
+	path = buildAPKs
+	url = https://github.com/BuildAPKs/buildAPKs.git
