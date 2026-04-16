@@ -22,7 +22,10 @@ fun AppNavigation(
 ) {
     NavHost(navController = navController, startDestination = Screen.Dashboard.route) {
         composable(Screen.Dashboard.route) {
-            DashboardScreen(navController = navController)
+            DashboardScreen(
+                navController = navController,
+                healthConnectViewModel = healthConnectViewModel
+            )
         }
         composable(Screen.Vitals.route) {
             VitalsScreen(
